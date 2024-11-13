@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter Details - {{ songname }} - {{ chapter }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-top: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2980b9;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #eaeaea;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #2c3e50;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #16a085;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link:hover {
+            background-color: #1abc9c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Details for {{ songname }} - Chapter {{ chapter }}</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Verse Count</th>
+                    <th>Verse</th>
+                    <th>KJV</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in verses %}
+                    <tr>
+                        <td>
+                            <!--<a href=" 'verse_detail' ?songname={{ songname }}&chapter={{ chapter }}&versecount={{ verse.versecount }}">-->
+                            <a href="{% url 'verse_detail'  i.bookname  i.chapter i.versecount %}">
+                                {{ i.versecount }}
+                            </a>
+                        </td>
+                        <td>{{ i.verse }}</td>
+                        <td>{{ i.kjv }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="/" class="back-link">Back to book name</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chapters in {{ bookname }}</title>
+</head>
+<body>
+    <h1>Chapters in {{ bookname }}</h1>
+    <ul>
+        {% for chapter in chapters %}
+            <li>{{ chapter.chapter }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'book_list' %}">Back to All Books</a>
+</body>
+</html>

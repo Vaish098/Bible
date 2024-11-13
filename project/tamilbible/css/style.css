@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f9;
+}
+
+h1 {
+    color: #333;
+    margin-top: 20px;
+}
+
+.book-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* Adjust columns as needed */
+    gap: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.book-button, .chapter-button {
+    background-color: #0a3d62;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.book-button:hover, .chapter-button:hover {
+    background-color: #3c6382;
+}
+
+#chapter-container {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  /* Adjust columns as needed */
+    gap: 10px;
+}
